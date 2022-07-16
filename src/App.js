@@ -1,11 +1,8 @@
-import './App.css';
+import "./App.css";
+import { Login } from "./components/Login";
 
 const App = () => {
-  return (
-    <div>
-      Go Scrum
-    </div>
-  );
-}
+    return <Login />;
+};
 
 export default App;
