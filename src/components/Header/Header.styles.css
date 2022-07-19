@@ -1,0 +1,20 @@
+header {
+    box-shadow: 0 2px 5px #dbdbdb;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+}
+
+/* header > img {
+    width: 90px;
+} */
+
+/* @media (min-width: 1200px) {
+    header > img {
+    width: 140px;
+    } 
+} */
+
+header > div {
+    cursor: pointer;
+}
