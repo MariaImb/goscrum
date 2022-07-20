@@ -1,0 +1,8 @@
+
+
+#tasks .wrapper_list .list_group {
+
+    flex-direction: row;
+    gap: 5px 10px;
+}
+
