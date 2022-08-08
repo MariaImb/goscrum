@@ -6,14 +6,18 @@ export const Header = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem("logged");
+        localStorage.removeItem("token");
+        localStorage.removeItem("userName");
         navigate("/login", {replace: true})
     }
 
     return(
         <header>
-            <span>Go Scrum</span> 
-            <div onClick={handleLogout}>x</div>
+            <span>Go Scrum</span>
+            <div className="wrapper_right_header" >
+                <div>{localStorage.getItem("userName")}</div>
+                <div onClick={handleLogout}>x</div>
+            </div>
         </header>
     )
 }
