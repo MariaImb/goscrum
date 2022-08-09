@@ -11,9 +11,7 @@ export const tasksReducer = (state = initialState, action ) =>{
         case TASKS_REQUEST:
             return { 
                 ...state,
-                loading: true,
-                error: "rr",
-            }
+                loading: true,            }
         case TASKS_SUCCESS:
             return { 
                 loading: false,

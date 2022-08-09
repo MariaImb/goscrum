@@ -1,13 +1,18 @@
 import "./TaskForm.styles.css";
+import { useDispatch } from "react-redux";
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { addTask } from "../../store/actions/tasksActions";
 
 import {useFormik} from 'formik';
 
-const {REACT_APP_API_ENDPOINT: API_ENDPOINT} = process.env
+// const {REACT_APP_API_ENDPOINT: API_ENDPOINT} = process.env
 
 export const TaskForm = () => {
+
+    const dispatch = useDispatch();
+
 
     const initialValues = {
         title: "",
@@ -18,19 +23,10 @@ export const TaskForm = () => {
     }
     
     const onSubmit = () => {
-        fetch(`${API_ENDPOINT}task`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("token"),
-            },
-            body: JSON.stringify ({ task: values}),
-        })
-                .then(response => response.json())
-                .then(data=> {
-                    resetForm()
-                    toast("tu tarea se creo")
-                })
+        dispatch(addTask(values));
+        resetForm()
+        toast("tu tarea se creo")
+                
     }
 
         const required = "* Campo obligatorio"
